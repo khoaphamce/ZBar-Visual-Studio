@@ -3146,7 +3146,7 @@ static void qr_data_mask_fill(unsigned *_mask, int _dim, int _pattern)
 	unsigned m;
 	m = 7;
 	for (j = 0; j < _dim; j++) {
-	    memset(_mask + j * stride, (0xCC ^ -(m & 1)) & 0xFF,
+	    memset(_mask + j * stride, (0xCC ^ (0-(m & 1))) & 0xFF,
 		   stride * sizeof(*_mask));
 	    m = m >> 1 | m << 5;
 	}

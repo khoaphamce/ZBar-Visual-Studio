@@ -144,9 +144,9 @@ int bch15_5_correct(unsigned *_y)
 
 unsigned bch15_5_encode(unsigned _x)
 {
-    return (-(_x & 1) & 0x0537) ^ (-(_x >> 1 & 1) & 0x0A6E) ^
-	   (-(_x >> 2 & 1) & 0x11EB) ^ (-(_x >> 3 & 1) & 0x23D6) ^
-	   (-(_x >> 4 & 1) & 0x429B);
+    return (0-(_x & 1) & 0x0537) ^ (0-(_x >> 1 & 1) & 0x0A6E) ^
+	   (0-(_x >> 2 & 1) & 0x11EB) ^ (0-(_x >> 3 & 1) & 0x23D6) ^
+	   (0-(_x >> 4 & 1) & 0x429B);
 }
 
 #if 0
