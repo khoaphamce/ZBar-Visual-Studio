@@ -25,7 +25,7 @@ I take <https://github.com/dani4/ZBarWin64> as a reference for porting from Linu
 
 Forked from updated and maintaining version of Zbar <https://github.com/mchehab/zbar>.
 
-Original Zbar library <http://sourceforge.net/projects/zbar>.
+Last but not least, the original Zbar library <http://sourceforge.net/projects/zbar>.
 
 ZBAR BAR CODE READER
 ====================

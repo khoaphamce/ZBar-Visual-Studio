@@ -70,6 +70,12 @@
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <OutDir>$(SolutionDir)$(Platform)\$(Configuration)\</OutDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <OutDir>$(SolutionDir)$(Platform)\$(Configuration)\</OutDir>
+  </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
@@ -145,22 +151,6 @@
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\ZBarWin64-original\zbar\decoder\codabar.h" />
-    <ClInclude Include="..\..\ZBarWin64-original\zbar\decoder\code128.h" />
-    <ClInclude Include="..\..\ZBarWin64-original\zbar\decoder\code39.h" />
-    <ClInclude Include="..\..\ZBarWin64-original\zbar\decoder\code93.h" />
-    <ClInclude Include="..\..\ZBarWin64-original\zbar\decoder\databar.h" />
-    <ClInclude Include="..\..\ZBarWin64-original\zbar\decoder\ean.h" />
-    <ClInclude Include="..\..\ZBarWin64-original\zbar\decoder\i25.h" />
-    <ClInclude Include="..\..\ZBarWin64-original\zbar\decoder\pdf417.h" />
-    <ClInclude Include="..\..\ZBarWin64-original\zbar\decoder\pdf417_hash.h" />
-    <ClInclude Include="..\..\ZBarWin64-original\zbar\decoder\qr_finder.h" />
-    <ClInclude Include="..\..\ZBarWin64-original\zbar\qrcode\bch15_5.h" />
-    <ClInclude Include="..\..\ZBarWin64-original\zbar\qrcode\binarize.h" />
-    <ClInclude Include="..\..\ZBarWin64-original\zbar\qrcode\isaac.h" />
-    <ClInclude Include="..\..\ZBarWin64-original\zbar\qrcode\qrdec.h" />
-    <ClInclude Include="..\..\ZBarWin64-original\zbar\qrcode\rs.h" />
-    <ClInclude Include="..\..\ZBarWin64-original\zbar\qrcode\util.h" />
     <ClInclude Include="..\include\config.h" />
     <ClInclude Include="..\include\zbar.h" />
     <ClInclude Include="..\include\zbar\Decoder.h" />
@@ -177,6 +167,16 @@
     <ClInclude Include="..\include\zbar\zbargtk.h" />
     <ClInclude Include="..\zbar\debug.h" />
     <ClInclude Include="..\zbar\decoder.h" />
+    <ClInclude Include="..\zbar\decoder\codabar.h" />
+    <ClInclude Include="..\zbar\decoder\code128.h" />
+    <ClInclude Include="..\zbar\decoder\code39.h" />
+    <ClInclude Include="..\zbar\decoder\code93.h" />
+    <ClInclude Include="..\zbar\decoder\databar.h" />
+    <ClInclude Include="..\zbar\decoder\ean.h" />
+    <ClInclude Include="..\zbar\decoder\i25.h" />
+    <ClInclude Include="..\zbar\decoder\pdf417.h" />
+    <ClInclude Include="..\zbar\decoder\pdf417_hash.h" />
+    <ClInclude Include="..\zbar\decoder\qr_finder.h" />
     <ClInclude Include="..\zbar\error.h" />
     <ClInclude Include="..\zbar\event.h" />
     <ClInclude Include="..\zbar\image.h" />
@@ -185,6 +185,12 @@
     <ClInclude Include="..\zbar\mutex.h" />
     <ClInclude Include="..\zbar\processor.h" />
     <ClInclude Include="..\zbar\qrcode.h" />
+    <ClInclude Include="..\zbar\qrcode\bch15_5.h" />
+    <ClInclude Include="..\zbar\qrcode\binarize.h" />
+    <ClInclude Include="..\zbar\qrcode\isaac.h" />
+    <ClInclude Include="..\zbar\qrcode\qrdec.h" />
+    <ClInclude Include="..\zbar\qrcode\rs.h" />
+    <ClInclude Include="..\zbar\qrcode\util.h" />
     <ClInclude Include="..\zbar\refcnt.h" />
     <ClInclude Include="..\zbar\svg.h" />
     <ClInclude Include="..\zbar\symbol.h" />
