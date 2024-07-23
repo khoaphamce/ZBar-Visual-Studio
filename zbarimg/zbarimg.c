@@ -53,12 +53,7 @@
 #include <wand/wand_api.h>
 #endif
 
-#ifdef HAVE_IMAGEMAGICK
-#ifdef HAVE_IMAGEMAGICK7
 #include <MagickWand/MagickWand.h>
-#else
-#include <wand/MagickWand.h>
-#endif
 
 /* ImageMagick frequently changes API names - just use the original
  * (more stable?) names to match GraphicsMagick
@@ -75,7 +70,7 @@
 #if MagickLibVersion > 0x645
 #define MagickGetImagePixels MagickExportImagePixels
 #endif
-#endif
+//#endif
 
 static const char *note_usage = N_(
     "usage: zbarimg [options] <image>...\n"
