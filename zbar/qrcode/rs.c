@@ -34,7 +34,7 @@ void rs_gf256_init(rs_gf256 *_gf, unsigned _ppoly)
     p = 1;
     for (i = 0; i < 256; i++) {
 	_gf->exp[i] = _gf->exp[i + 255] = p;
-	p = ((p << 1) ^ (-(p >> 7) & _ppoly)) & 0xFF;
+	p = ((p << 1) ^ ((0-(p >> 7)) & _ppoly)) & 0xFF;
     }
     /*Invert the table to recover the logs.*/
     for (i = 0; i < 255; i++)
@@ -70,7 +70,7 @@ static unsigned rs_gsqrt(const rs_gf256 *_gf, unsigned _a)
     if (!_a)
 	return 0;
     loga = _gf->log[_a];
-    return _gf->exp[loga + (255 & -(loga & 1)) >> 1];
+    return _gf->exp[loga + (255 & (0 - (loga & 1))) >> 1];
 }
 
 /*Polynomial root finding in GF(2**8).
@@ -218,7 +218,7 @@ static int rs_cubic_solve(const rs_gf256 *_gf, unsigned _a, unsigned _b,
 	return 3;
     }
     logd2 = _gf->log[d2];
-    logd  = logd2 + (255 & -(logd2 & 1)) >> 1;
+    logd  = logd2 + (255 & (0 - (logd2 & 1))) >> 1;
     k	  = rs_gdiv(_gf, k, _gf->exp[logd + logd2]);
     /*Substitute y=w+1/w and z=w**3 to get z**2 + k*z + 1 == 0.*/
     nroots = rs_quadratic_solve(_gf, k, 1, _x);

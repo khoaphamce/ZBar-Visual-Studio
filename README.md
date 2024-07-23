@@ -1,6 +1,34 @@
+ZBAR VISUAL STUDIO
+==================
+This project is a fork of Zbar bar code reader project from <https://github.com/mchehab/zbar>. This work aim to create a window version of Zbar using Visual Studio as compiling tool.
+
+BUILDING WITH VISUAL STUDIO
+===========================
+Simply open `ZbarCDR/ZbarCDR.sln` using Visual Studio 2019 or above and build the project.
+
+LIMITATION
+==========
+- No Output Window and Video Input functions. Removed from the DLL def file. Some of it might be still in the code but you should not try to use them. 
+- Done limited testing. Basically testing of the QR codes.
+
+LICENSING AND COPY
+===================
+See the licensing and copying information of the original project which are all still present. The licensing of this library should be LGPL following the license of the original library.
+
+COPYRIGHT
+=========
+Khoa Pham 2024
+
+ACKNOWLEDGEMENTS
+================
+I take <https://github.com/dani4/ZBarWin64> as a reference for porting from Linux based code to Visual Studio project.
+
+Forked from updated and maintaining version of Zbar <https://github.com/mchehab/zbar>.
+
+Last but not least, the original Zbar library <http://sourceforge.net/projects/zbar>.
+
 ZBAR BAR CODE READER
 ====================
-
 ZBar Bar Code Reader is an open source software suite for reading bar
 codes from various sources, such as video streams, image files and raw
 intensity sensors. It supports EAN-13/UPC-A, UPC-E, EAN-8, Code 128,
@@ -41,7 +69,6 @@ You may find some outdated documentation at the original ZBar's
 site at Sourceforge, but please notice that the content there is not
 updated for ages:
 	http://zbar.sourceforge.net/
-
 
 BUILDING
 ========
