@@ -73,3 +73,4 @@ zbar-*.tar.bz2
 zbar-*.tar.gz
 
 *.vs/
+*x64/
