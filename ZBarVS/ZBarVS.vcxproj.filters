@@ -138,6 +138,54 @@
     <ClInclude Include="..\zbar\libiconv\Include\iconv.h">
       <Filter>libiconv</Filter>
     </ClInclude>
+    <ClInclude Include="..\zbar\decoder\codabar.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\zbar\decoder\code128.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\zbar\decoder\code39.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\zbar\decoder\code93.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\zbar\decoder\databar.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\zbar\decoder\ean.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\zbar\decoder\i25.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\zbar\decoder\pdf417.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\zbar\decoder\pdf417_hash.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\zbar\decoder\qr_finder.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\zbar\qrcode\bch15_5.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\zbar\qrcode\binarize.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\zbar\qrcode\isaac.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\zbar\qrcode\qrdec.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\zbar\qrcode\rs.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\zbar\qrcode\util.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Library Include="..\zbar\libiconv\lib_x64\libiconv.lib">
@@ -231,7 +279,7 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="..\zbar\ZbarCDR.def">
+    <None Include="..\zbar\ZBarVS.def">
       <Filter>Source Files</Filter>
     </None>
   </ItemGroup>

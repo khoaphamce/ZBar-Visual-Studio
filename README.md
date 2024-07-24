@@ -4,7 +4,7 @@ This project is a fork of Zbar bar code reader project from <https://github.com/
 
 BUILDING WITH VISUAL STUDIO
 ===========================
-Simply open `ZbarCDR/ZbarCDR.sln` using Visual Studio 2019 or above and build the project.
+Simply open `ZbarVS/ZbarVS.sln` using Visual Studio 2019 or above and build the project.
 
 LIMITATION
 ==========

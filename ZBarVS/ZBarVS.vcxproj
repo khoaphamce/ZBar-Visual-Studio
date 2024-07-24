@@ -22,8 +22,9 @@
     <VCProjectVersion>17.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
     <ProjectGuid>{edc8c818-f7db-4960-b977-2c6867c43622}</ProjectGuid>
-    <RootNamespace>ZbarCDR</RootNamespace>
+    <RootNamespace>ZbarVS</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+    <ProjectName>ZBarVS</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
@@ -116,7 +117,7 @@
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <ModuleDefinitionFile>..\zbar\ZbarCDR.def</ModuleDefinitionFile>
+      <ModuleDefinitionFile>..\zbar\ZBarVS.def</ModuleDefinitionFile>
       <AdditionalDependencies>winmm.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;libiconv.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <AdditionalLibraryDirectories>$(SolutionDir)..\zbar\libiconv\lib_x64</AdditionalLibraryDirectories>
     </Link>
@@ -143,7 +144,7 @@
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalDependencies>winmm.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;libiconv.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <ModuleDefinitionFile>..\zbar\ZbarCDR.def</ModuleDefinitionFile>
+      <ModuleDefinitionFile>..\zbar\ZBarVS.def</ModuleDefinitionFile>
       <AdditionalLibraryDirectories>$(SolutionDir)..\zbar\libiconv\lib_x64;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
     <PostBuildEvent>
@@ -234,7 +235,7 @@
     <ClCompile Include="..\zbar\symbol.c" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="..\zbar\ZbarCDR.def" />
+    <None Include="..\zbar\ZBarVS.def" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

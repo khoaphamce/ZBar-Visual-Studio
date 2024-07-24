@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.9.34701.34
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ZbarCDR", "ZbarCDR.vcxproj", "{EDC8C818-F7DB-4960-B977-2C6867C43622}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ZbarVS", "ZbarVS.vcxproj", "{EDC8C818-F7DB-4960-B977-2C6867C43622}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
