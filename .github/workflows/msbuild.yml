@@ -13,7 +13,7 @@ on:
 
 env:
   # Path to the solution file relative to the root of the project.
-  SOLUTION_FILE_PATH: .\ZBarVS\ZBarVS.sln
+  SOLUTION_FILE_PATH: ./ZBarVS/ZBarVS.sln
 
   # Configuration type to build.
   # You can convert this to a build matrix if you need coverage of multiple configuration types.
@@ -43,6 +43,12 @@ jobs:
       # See https://docs.microsoft.com/visualstudio/msbuild/msbuild-command-line-reference
       run: msbuild /m /p:Configuration=${{env.BUILD_CONFIGURATION}} ${{env.SOLUTION_FILE_PATH}}
 
-    - name: Publish artifact
+    - name: Creating artifact
       working-directory: ${{env.GITHUB_WORKSPACE}}
-      run: .\.github\workflows\post-build.bat
+      run: ./.github/workflows/post-build.bat
+
+    - uses: actions/upload-artifact@v4
+      with:
+        name: Upload artifact
+        working-directory: ${{env.GITHUB_WORKSPACE}}
+        path: ./ZBarVS/artifacts/
