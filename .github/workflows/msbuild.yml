@@ -49,6 +49,5 @@ jobs:
 
     - uses: actions/upload-artifact@v4
       with:
-        name: Upload artifact
-        working-directory: ${{env.GITHUB_WORKSPACE}}
+        name: ZBar-Windows-x64
         path: ./ZBarVS/artifacts/
