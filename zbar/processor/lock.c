@@ -158,27 +158,33 @@ static inline int proc_wait_unthreaded(zbar_processor_t *proc,
 				       zbar_timer_t *timeout)
 {
     int rc;
-    //int blocking = proc->streaming && zbar_video_get_fd(proc->video) < 0;
+#ifndef WIN32
+    int blocking = proc->streaming && zbar_video_get_fd(proc->video) < 0;
+#else
     int blocking = 0;
+#endif // !WIN32
+
     _zbar_mutex_unlock(&proc->mutex);
 
     rc = 1;
     while (rc > 0 && (waiter->events & EVENTS_PENDING)) {
 	int reltime;
 	/* FIXME lax w/the locking (though shouldn't matter...) */
-	//if (blocking) {
-	//    zbar_image_t *img = zbar_video_next_image(proc->video);
-	//    if (!img) {
-	//	rc = -1;
-	//	break;
-	//    }
+#ifndef WIN32
+	if (blocking) {
+	    zbar_image_t *img = zbar_video_next_image(proc->video);
+	    if (!img) {
+		rc = -1;
+		break;
+	    }
 
-	//    /* FIXME reacquire API lock! (refactor w/video thread?) */
-	//    _zbar_mutex_lock(&proc->mutex);
-	//    _zbar_process_image(proc, img);
-	//    zbar_image_destroy(img);
-	//    _zbar_mutex_unlock(&proc->mutex);
-	//}
+	    /* FIXME reacquire API lock! (refactor w/video thread?) */
+	    _zbar_mutex_lock(&proc->mutex);
+	    _zbar_process_image(proc, img);
+	    zbar_image_destroy(img);
+	    _zbar_mutex_unlock(&proc->mutex);
+	}
+#endif // !WIN32
 	reltime = _zbar_timer_check(timeout);
 	if (blocking && (reltime < 0 || reltime > MAX_INPUT_BLOCK))
 	    reltime = MAX_INPUT_BLOCK;
