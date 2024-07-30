@@ -14,7 +14,8 @@ echo "## Finished setting up artifact folder ##"
 echo "## Copy to artifact ##"
 
 # Copy the files to the artifact directories
-cp -r -u ./include/* ./ZBarLinux/artifacts/include/
+cp -r -u ./include/*.h ./ZBarLinux/artifacts/include/
+cp -r -u ./include/zbar/ ./ZBarLinux/artifacts/include/
 cp -u ./zbar/.libs/libzbar.so* ./ZBarLinux/artifacts/bin/
 
 # Echo to indicate the copying is complete
