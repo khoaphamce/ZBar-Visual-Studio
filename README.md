@@ -6,6 +6,10 @@ BUILDING WITH VISUAL STUDIO
 ===========================
 Simply open `ZbarVS/ZbarVS.sln` using Visual Studio 2019 or above and build the project.
 
+BUILDING ON UBUNTU
+===========================
+Simply run build.sh to build the project.
+
 LIMITATION
 ==========
 - No Output Window and Video Input functions. Removed from the DLL def file. Some of it might be still in the code but you should not try to use them. 
