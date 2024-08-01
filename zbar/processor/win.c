@@ -123,7 +123,10 @@ static LRESULT CALLBACK win_handle_event(HWND hwnd, UINT message, WPARAM wparam,
 	SetWindowLongPtr(hwnd, GWLP_USERDATA, (LONG_PTR)proc);
 	proc->display = hwnd;
 
-	//zbar_window_attach(proc->window, proc->display, proc->xwin);
+#ifndef WIN32
+	zbar_window_attach(proc->window, proc->display, proc->xwin);
+#endif // !WIN32
+
     } else if (!proc)
 	return (DefWindowProc(hwnd, message, wparam, lparam));
 
@@ -133,7 +136,9 @@ static LRESULT CALLBACK win_handle_event(HWND hwnd, UINT message, WPARAM wparam,
 	GetClientRect(hwnd, &r);
 	zprintf(3, "WM_SIZE %ldx%ld\n", r.right, r.bottom);
 	assert(proc);
-	//zbar_window_resize(proc->window, r.right, r.bottom);
+#ifndef WIN32
+	zbar_window_resize(proc->window, r.right, r.bottom);
+#endif // !WIN32
 	InvalidateRect(hwnd, NULL, 0);
 	return (0);
     }
@@ -141,13 +146,15 @@ static LRESULT CALLBACK win_handle_event(HWND hwnd, UINT message, WPARAM wparam,
     case WM_PAINT: {
 	PAINTSTRUCT ps;
 	BeginPaint(hwnd, &ps);
-	//if (zbar_window_redraw(proc->window)) {
-	//    HDC hdc = GetDC(hwnd);
-	//    RECT r;
-	//    GetClientRect(hwnd, &r);
-	//    FillRect(hdc, &r, GetStockObject(BLACK_BRUSH));
-	//    ReleaseDC(hwnd, hdc);
-	//}
+#ifndef WIN32
+	if (zbar_window_redraw(proc->window)) {
+	    HDC hdc = GetDC(hwnd);
+	    RECT r;
+	    GetClientRect(hwnd, &r);
+	    FillRect(hdc, &r, GetStockObject(BLACK_BRUSH));
+	    ReleaseDC(hwnd, hdc);
+	}
+#endif // !WIN32
 	EndPaint(hwnd, &ps);
 	return (0);
     }
@@ -181,7 +188,9 @@ static LRESULT CALLBACK win_handle_event(HWND hwnd, UINT message, WPARAM wparam,
     case WM_DESTROY: {
 	zprintf(3, "WM_DESTROY\n");
 	proc->display = NULL;
-	//zbar_window_attach(proc->window, NULL, 0);
+#ifndef WIN32
+	zbar_window_attach(proc->window, NULL, 0);
+#endif // !WIN32
 	return (0);
     }
     }

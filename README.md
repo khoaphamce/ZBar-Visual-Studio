@@ -6,6 +6,18 @@ BUILDING WITH VISUAL STUDIO
 ===========================
 Simply open `ZbarVS/ZbarVS.sln` using Visual Studio 2019 or above and build the project.
 
+BUILDING ON LINUX
+===========================
+- Ubuntu: Simply run `build.sh` script to build the project.
+- Other Linux distributions: replace the package manager command in `build.sh` script with a suitable one and run the script to build the project. For example, build.sh script content on CentOS should be:
+```
+rm ./zbar/unistd.h
+yum install autoconf libtool automake make autoconf-archive pkg-config gettext-devel
+autoreconf -vfi
+./configure --without-java --without-gtk --without-qt  --without-imagemagick  --disable-video --without-python --without-jpeg
+make
+```
+
 LIMITATION
 ==========
 - No Output Window and Video Input functions. Removed from the DLL def file. Some of it might be still in the code but you should not try to use them. 

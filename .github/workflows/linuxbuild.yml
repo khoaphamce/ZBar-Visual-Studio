@@ -1,0 +1,43 @@
+# This workflow uses actions that are not certified by GitHub.
+# They are provided by a third-party and are governed by
+# separate terms of service, privacy policy, and support
+# documentation.
+
+name: UbuntuBuild
+
+on:
+  push:
+    branches: [ "master" ]
+  pull_request:
+    branches: [ "master" ]
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v4
+
+    - name: Make build script executable
+      working-directory: ${{env.GITHUB_WORKSPACE}}
+      run: chmod +x ./build.sh
+
+    - name: Build
+      working-directory: ${{env.GITHUB_WORKSPACE}}
+      run: ./build.sh
+
+    - name: Make post-build script executable
+      working-directory: ${{env.GITHUB_WORKSPACE}}
+      run: chmod +x ./.github/workflows/post-build.sh
+
+    - name: Creating artifact
+      working-directory: ${{env.GITHUB_WORKSPACE}}
+      run: ./.github/workflows/post-build.sh
+
+    - uses: actions/upload-artifact@v4
+      with:
+        name: ZBar-Linux-x64
+        path: ./ZBarLinux/artifacts/
