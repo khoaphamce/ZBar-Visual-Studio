@@ -160,7 +160,7 @@ static inline zbar_image_t *_zbar_image_copy(const zbar_image_t *src,
 	char *spc, *dpc;
 
 	/* Do it word per word, in order to speedup */
-	for (i = 0; i < len; i += sizeof(long))
+	for (i = 0; i < len / sizeof(long); i++)
 	    *dp++ = ~(*sp++);
     
 	/* Deal with non-aligned remains, if any */
